@@ -1,0 +1,34 @@
+body {
+  background-color: white;
+  color: black;
+  background-size: auto;
+  background-repeat: no-repeat;
+  font-family: "Pacifico", cursive;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  font-size: xx-large;
+  margin-bottom: 50px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+input {
+  font-family: "Pacifico", cursive;
+}
+
+.vertical-divider {
+  border-left: 1px solid gray;
+}
+
+.page-footer .footer-copyright {
+  background-color: white;
+}
+
+.task-delete {
+  float: inline-end;
+}
