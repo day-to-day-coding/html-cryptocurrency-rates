@@ -3,7 +3,6 @@ body {
   color: black;
   background-size: auto;
   background-repeat: no-repeat;
-  font-family: "Pacifico", cursive;
   display: flex;
   flex-direction: column;
 }

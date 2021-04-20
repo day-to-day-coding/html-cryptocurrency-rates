@@ -10,21 +10,35 @@ function getExchangeRates(event, baseCurrency = "BTC") {
   )
     .then((response) => response.json())
     .then((result) => {
+      // render cards
+      renderCards(result.data.rates, baseCurrency);
       // render currency table
       renderCurrencyTable(result.data.rates, baseCurrency);
     })
     .catch((error) => console.log("error", error));
 }
 
+function renderCards(rates, baseCurrency) {
+  document.getElementById(
+    "usd"
+  ).innerHTML = `1 ${baseCurrency} \t=\t &#36 ${rates["USD"]}`;
+
+  document.getElementById(
+    "inr"
+  ).innerHTML = `1 ${baseCurrency} \t=\t &#x20B9 ${rates["INR"]}`;
+
+  document.getElementById(
+    "eur"
+  ).innerHTML = `1 ${baseCurrency} \t=\t &#8364 ${rates["EUR"]}`;
+}
+
 function renderCurrencyTable(rates, baseCurrency) {
   // get the tbody element
   const tbodyElement = document.getElementById("ratetable");
   tbodyElement.textContent = "";
-  // list of currency
-  const currencyList = ["BTC", "ETH", "LTC", "INR", "USD", "XLM", "BSV", "EUR"];
 
-  for (let i = 0; i < currencyList.length; i++) {
-    const currency = currencyList[i];
+  for (let i = 0; i < Object.keys(rates).length; i++) {
+    const currency = Object.keys(rates)[i];
     // create a new table row element
     const tr = document.createElement("tr");
     tr.id = currency;
